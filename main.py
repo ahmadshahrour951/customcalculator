@@ -5,16 +5,16 @@ def convert_to_c(temp_f):
 
 def convert_to_f(temp_c):
   # this is a helper function that takes the input of temp C  and calculates the output which is temp F
-    return ((temp_c * 9) / 5) + 32
+    return ((int(temp_c) * 9) / 5) + 32
 
 
 print("Hey there! it's super difficult to convert Celsius to Fahrenheit and vice versa. That's why you came to me instead of the incumbent Google..hehe")
 
 # I ask for the user the temperature unit output required
-temp_choice = input("Would you like to enter Celsius or Fahrenheit?")
+temp_choice = input("Would you like to enter Celsius or Fahrenheit? ")
 
 # I validate user input for the temperature unit choice using a while loop
-while temp_choice != 'Celsius' and temp_choice != 'Fahrenheit':
+while temp_choice not in ['Celsius', 'Fahrenheit']:
     print("Your input was incorrect. Please try again.")
     temp_choice = input(
         "Would you like to enter Celsius or Fahrenheit?")
@@ -22,7 +22,7 @@ while temp_choice != 'Celsius' and temp_choice != 'Fahrenheit':
 
 # I ask for the user the temperature
 user_input = input(
-    "Enter the temperature in " + temp_choice +)
+    "Enter the temperature in " + temp_choice + ": ")
 
 # this will go into an infinite loop of input validation
 while user_input.isdigit() == False:
@@ -33,8 +33,8 @@ while user_input.isdigit() == False:
 
 # this is where the answer will be printed, that means that the user_input was a number
 if temp_choice == 'Celsius':
-    print("The answer is: " + str(convert_to_f(user_input)) + " " + temp_choice)
+    print("The answer is: " + str(convert_to_f(user_input)) + " F")
 else:
-    print("The answer is: " + str(convert_to_c(user_input)) + " " + temp_choice)
+    print("The answer is: " + str(convert_to_c(user_input)) + " C")
 
 print("Thank you for using my service!")
